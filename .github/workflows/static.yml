@@ -16,8 +16,6 @@ jobs:
       - name: Update revision.txt
         run: |
           echo "$(date)" >> revision.txt
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add revision.txt
           git commit -m "Update revision.txt with timestamp" || echo "No changes to commit"
           git push
