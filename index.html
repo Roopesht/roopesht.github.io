@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roopesh Tayaloor | Entrepreneur & Tech Educator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d6ae3;
+            --primary-dark: #1a56d4;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --accent: #8b5cf6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
+            color: white;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid var(--secondary);
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .profile-info .title {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #d1d5db;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 80px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+        
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        /* Professional Summary */
+        .summary-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+        
+        /* Ventures */
+        .venture-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .venture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .venture-header {
+            background: linear-gradient(90deg, var(--dark), #374151);
+            color: white;
+            padding: 25px;
+        }
+        
+        .venture-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .venture-role {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .venture-year {
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+        
+        .venture-body {
+            padding: 25px;
+        }
+        
+        .venture-description {
+            margin-bottom: 20px;
+        }
+        
+        .achievements {
+            margin: 20px 0;
+        }
+        
+        .achievements h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .achievements ul {
+            padding-left: 20px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-tag {
+            background: #e0f2fe;
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-gray);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .timeline-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Skills */
+        .skills-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category {
+            margin-bottom: 25px;
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-item {
+            background: #f3f4f6;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+        }
+        
+        .quick-contact {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-detail i {
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Philosophy Section */
+        .philosophy-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .philosophy-box h3 {
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-quote {
+            font-style: italic;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            color: #9ca3af;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .profile-info h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-info .title {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image">
+                    <!-- GitHub profile image will be loaded here -->
+                    <img id="github-avatar" src="" alt="Roopesh Tayaloor">
+                </div>
+                <div class="profile-info">
+                    <h1 id="github-name">Roopesh Tayaloor</h1>
+                    <div class="title">Entrepreneur & Tech Educator</div>
+                    <p class="tagline">Creating meaningful impact through technology & education</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>ojasamirai.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>roopesht@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <!-- Professional Summary -->
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary-box">
+                        <p>For me, technology provides an unparalleled, sobering high. My focus is on creating meaningful impact: simplifying lives and enabling people to reach for their authentic dreams.</p>
+                        <p style="margin-top: 15px;">I hold a core belief: Learning is the single most important pursuit—a truth echoed by history's greatest minds. This is why I am devoted to the art of learning itself, a fascinating intersection of cutting-edge technology, the nuances of psychology, and wisdom from masters in the field.</p>
+                    </div>
+                </section>
+                
+                <!-- Current Ventures -->
+                <section class="section">
+                    <h2 class="section-title">Current Ventures</h2>
+                    
+                    <!-- OjasaMirai -->
+                    <div class="venture-card">
+                        <div class="venture-header">
+                            <h3 class="venture-title">OjasaMirai</h3>
+                            <div class="venture-role">Founder & CEO</div>
+                            <div class="venture-year">Started: 2024</div>
+                        </div>
+                        <div class="venture-body">
+                            <p class="venture-description">Ojasa mirai helps people become skilled in the easiest, fastest way possible through innovative learning solutions.</p>
+                            
+                            <div class="achievements">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>Rolled out the learning portal</li>
+                                    <li>Developed VS Code extension that makes learning a fun and engaging activity</li>
+                                    <li>Reached 150+ learners</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Cloud</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Arthasangraha -->
+                    <div class="venture-card">
+                        <div class="venture-header">
+                            <h3 class="venture-title">Arthasangraha</h3>
+                            <div class="venture-role">Co-founder</div>
+                            <div class="venture-year">Started: 2020</div>
+                        </div>
+                        <div class="venture-body">
+                            <p class="venture-description">Cutting edge trading tools for aspiring traders, providing advanced analytics and insights for better trading decisions.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Previous Experience -->
+                <section class="section">
+                    <h2 class="section-title">Previous Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Architect - Sapient</h4>
+                                <div class="timeline-period">2006 - 2019 (13 years)</div>
+                                <p>Led architectural design and implementation for enterprise solutions.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Sr. Consultant - Pepperl+Fuchs</h4>
+                                <div class="timeline-period">2001 - 2006 (5 years)</div>
+                                <p>Provided technical consulting and solutions for industrial automation clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Education -->
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Bachelor's in Electronics</h4>
+                                <div class="timeline-period">Bangalore University • 1995</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="quick-contact">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9901766617</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>roopesht@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://ojasamirai.com" target="_blank">ojasamirai.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/roopesht" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Skills -->
+                <div class="skills-container">
+                    <h3 class="section-title">Skills</h3>
+                    
+                    <div class="skill-category">
+                        <h4>Technical</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">React/JavaScript</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Data Science</span>
+                            <span class="skill-item">Cloud</span>
+                            <span class="skill-item">Node.js</span>
+                            <span class="skill-item">Full Stack</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Entrepreneurial</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Product Strategy</span>
+                            <span class="skill-item">EdTech Innovation</span>
+                            <span class="skill-item">Team Leadership</span>
+                            <span class="skill-item">Learning Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Philosophy -->
+                <div class="philosophy-box">
+                    <h3>My Philosophy</h3>
+                    <p>"Learning is the single most important pursuit—a truth echoed by history's greatest minds."</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Roopesh Tayaloor</div>
+                <p class="footer-quote">"Technology provides an unparalleled, sobering high. My focus is on creating meaningful impact."</p>
+                <div class="social-links">
+                    <a href="https://github.com/roopesht" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:roopesht@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://ojasamirai.com" class="social-link" target="_blank">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+                <div class="copyright">
+                    &copy; 2024 Roopesh Tayaloor. All rights reserved. | Entrepreneur since 2019
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Fetch GitHub profile data
+        const githubUsername = 'roopesht';
+        
+        async function fetchGitHubData() {
+            try {
+                const response = await fetch(`https://api.github.com/users/${githubUsername}`);
+                const data = await response.json();
+                
+                // Update profile image and name
+                document.getElementById('github-avatar').src = data.avatar_url;
+                document.getElementById('github-name').textContent = data.name || 'Roopesh Tayaloor';
+                
+                // Update GitHub link
+                const githubLinks = document.querySelectorAll('a[href="https://github.com/roopesht"]');
+                githubLinks.forEach(link => {
+                    link.href = data.html_url;
+                });
+                
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+                // Set a placeholder image if GitHub fetch fails
+                document.getElementById('github-avatar').src = 'https://ui-avatars.com/api/?name=Roopesh+Tayaloor&size=200&background=2d6ae3&color=fff&bold=true';
+            }
+        }
+        
+        // Set current year in footer if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchGitHubData();
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation to skill items on hover
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Animate timeline items on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+            
+            // Observe venture cards
+            document.querySelectorAll('.venture-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
